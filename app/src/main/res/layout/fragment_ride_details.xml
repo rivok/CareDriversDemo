@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        tools:visibility="gone" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/fail_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/my_rides_load_failed_message" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/retry_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/retry" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/time_and_earnings_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/map_view">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/date_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/bullet_separator"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textStyle="bold"
+                    android:textColor="@color/hopskipdrive_primary"
+                    android:textSize="18sp"
+                    tools:text="Thu 6/17" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/bullet_separator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="8dp"
+                    app:layout_constraintStart_toEndOf="@id/date_text"
+                    app:layout_constraintEnd_toStartOf="@id/start_at_text"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textSize="18sp"
+                    android:text="@string/bullet_separator" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/start_at_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@id/bullet_separator"
+                    app:layout_constraintEnd_toStartOf="@id/dash_separator"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    tools:text="4:18a" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/dash_separator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="4sp"
+                    app:layout_constraintStart_toEndOf="@id/start_at_text"
+                    app:layout_constraintEnd_toStartOf="@id/end_at_text"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textSize="18sp"
+                    android:text="@string/dash_separator" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/end_at_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@id/dash_separator"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textSize="18sp"
+                    tools:text="4:26p" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/estimated_earnings_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/estimated_earnings_text"
+                    app:layout_constraintEnd_toEndOf="@id/estimated_earnings_text"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/estimated_earnings_text"
+                    android:textSize="12sp"
+                    android:textAllCaps="true"
+                    android:text="@string/estimated_earnings_label" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/estimated_earnings_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:background="@drawable/bg_rounded_corner"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="2dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/estimated_earnings_label"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:text="$105.25" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <org.osmdroid.views.MapView
+                android:id="@+id/map_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@id/time_and_earnings_view"
+                app:layout_constraintBottom_toTopOf="@id/series_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintDimensionRatio="1.8"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/series_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="12dp"
+                android:text="@string/series_statement"
+                android:textStyle="italic"
+                app:layout_constraintTop_toBottomOf="@id/map_view"
+                app:layout_constraintBottom_toTopOf="@id/series_spacer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <View
+                android:id="@+id/series_spacer"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray"
+                app:layout_constraintTop_toBottomOf="@id/series_label"
+                app:layout_constraintBottom_toTopOf="@id/waypoint_recycler"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/waypoint_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/series_spacer"
+                app:layout_constraintBottom_toTopOf="@id/stats_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:listitem="@layout/item_waypoint"
+                tools:itemCount="2" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/stats_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                app:layout_constraintTop_toBottomOf="@id/waypoint_recycler"
+                app:layout_constraintBottom_toTopOf="@id/stats_spacer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Trip ID: 123456  &#8226;  18.48 mi  &#8226;  50 min" />
+
+            <View
+                android:id="@+id/stats_spacer"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray"
+                app:layout_constraintTop_toBottomOf="@id/stats_text"
+                app:layout_constraintBottom_toTopOf="@id/cancel_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/cancel_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="@string/cancel_trip"
+                android:textSize="16sp"
+                android:textColor="@color/warn"
+                android:textAllCaps="false"
+                android:background="@color/white"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/stats_spacer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</FrameLayout>
+

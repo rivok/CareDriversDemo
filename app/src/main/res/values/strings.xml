@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">CareDrivers Demo</string>
+    <string name="my_rides">My Rides</string>
+    <string name="my_rides_load_failed_message">Failed to load my rides.</string>
+    <string name="retry">Retry</string>
+    <string name="estimated_earnings_label">Estimated</string>
+    <string name="estimated_earnings_label_abbreviated">est.</string>
+    <string name="ordered_list_item">%1$d. %2$s</string>
+    <string name="ordered_list_item_separator">\n</string>
+    <string name="parenthesized">(%1$s)</string>
+    <string name="rider_booster_format">%1$s &#8226; %2$s</string>
+    <string name="ride_details">Ride Details</string>
+    <string name="series_statement">This trip is part of a series.</string>
+    <string name="pickup">Pickup</string>
+    <string name="dropoff">Drop-off</string>
+    <string name="stats">Trip ID: %1$d&#160;&#160;&#8226;&#160;&#160;%2$.2f mi&#160;&#160;&#8226;&#160;&#160;%3$d min</string>
+    <string name="cancel_trip">Cancel This Trip</string>
+    <string name="no">No!! &#128548;</string>
+    <string name="bullet_separator" translatable="false">&#8226;</string>
+    <string name="dash_separator" translatable="false">&#8211;</string>
+</resources>

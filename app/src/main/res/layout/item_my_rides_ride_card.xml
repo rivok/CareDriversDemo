@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginBottom="16dp"
+    app:cardCornerRadius="4dp">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/start_at_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/dash_separator"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                tools:text="4:18a" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/dash_separator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="6sp"
+                app:layout_constraintStart_toEndOf="@id/start_at_text"
+                app:layout_constraintEnd_toStartOf="@id/end_at_text"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textSize="16sp"
+                android:text="@string/dash_separator" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/end_at_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/dash_separator"
+                app:layout_constraintEnd_toStartOf="@id/rider_booster_text"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textSize="16sp"
+                tools:text="4:26p" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/rider_booster_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="6sp"
+                app:layout_constraintStart_toEndOf="@id/end_at_text"
+                app:layout_constraintBaseline_toBaselineOf="@id/end_at_text"
+                android:textSize="12sp"
+                tools:text="(2 riders &#8226; 1 booster)" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/estimated_earnings_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="4sp"
+                app:layout_constraintEnd_toStartOf="@id/estimated_earnings_text"
+                app:layout_constraintBaseline_toBaselineOf="@id/estimated_earnings_text"
+                android:textSize="11sp"
+                android:textColor="@color/hopskipdrive_primary"
+                android:text="@string/estimated_earnings_label_abbreviated" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/estimated_earnings_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textColor="@color/hopskipdrive_primary"
+                android:textSize="18sp"
+                tools:text="$105.25" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/address_list_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/estimated_earnings_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            tools:text="1. 2565 E Underhill Ave, Anaheim 92806\n2. 6775 Selma Ave, Los Angeles 90028\n3. 1420 S Figueroa St, Los Angeles 90015" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.cardview.widget.CardView>

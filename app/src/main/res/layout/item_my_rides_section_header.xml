@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/date_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/bullet_separator"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textStyle="bold"
+            android:textColor="@color/hopskipdrive_primary"
+            android:textSize="18sp"
+            tools:text="Thu 6/17" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/bullet_separator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="8dp"
+            app:layout_constraintStart_toEndOf="@id/date_text"
+            app:layout_constraintEnd_toStartOf="@id/start_at_text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="14sp"
+            android:text="@string/bullet_separator" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/start_at_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/bullet_separator"
+            app:layout_constraintEnd_toStartOf="@id/dash_separator"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            tools:text="4:18a" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dash_separator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="4sp"
+            app:layout_constraintStart_toEndOf="@id/start_at_text"
+            app:layout_constraintEnd_toStartOf="@id/end_at_text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="14sp"
+            android:text="@string/dash_separator" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/end_at_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/dash_separator"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="14sp"
+            tools:text="4:26p" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/estimated_earnings_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/estimated_earnings_text"
+            android:textSize="11sp"
+            android:textAllCaps="true"
+            android:text="@string/estimated_earnings_label" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/estimated_earnings_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/estimated_earnings_label"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@color/hopskipdrive_primary"
+            android:textSize="18sp"
+            tools:text="$105.25" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="16dp" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

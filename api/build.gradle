@@ -1,0 +1,21 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.5.31'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+kotlin {
+    explicitApi()
+}
+
+dependencies {
+    implementation 'io.ktor:ktor-client-core:1.6.5'
+    implementation 'io.ktor:ktor-client-okhttp:1.6.5'
+    implementation 'io.ktor:ktor-client-serialization:1.6.5'
+    api project(path: ':models')
+}

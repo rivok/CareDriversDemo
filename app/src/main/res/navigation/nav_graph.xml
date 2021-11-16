@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_my_rides">
+    <fragment
+        android:id="@+id/fragment_my_rides"
+        android:name="com.hopskipdrive.caredriversdemo.screens.myrides.MyRidesFragment"
+        android:label="@string/my_rides"
+        tools:layout="@layout/fragment_my_rides" >
+        <action
+            android:id="@+id/fragment_my_rides_to_fragment_ride_detail"
+            app:destination="@id/fragment_ride_detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_ride_detail"
+        android:name="com.hopskipdrive.caredriversdemo.screens.ridedetails.RideDetailsFragment"
+        android:label="@string/ride_details"
+        tools:layout="@layout/fragment_ride_details" >
+        <argument
+            android:name="ride_id"
+            app:argType="long" />
+    </fragment>
+</navigation>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="hopskipdrive_primary">#1F5482</color>
+    <color name="hopskipdrive_secondary">#25C3E9</color>
+    <color name="black">#FF000000</color>
+    <color name="gray">#FFE0E0E0</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="warn">#F24C49</color>
+    <color name="map_start">#497B18</color>
+    <color name="map_end">#B7511B</color>
+</resources>
